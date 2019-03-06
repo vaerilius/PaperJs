@@ -156,32 +156,3 @@ var keyData = {
 		color: '#2c3e50'
 	}
 }
-
-    
-    var circles = [];
-    function onKeyDown(e) {
-
-      if (keyData[e.key]) {
-        var newCircle =  new Path.Circle(new Point( Math.random() * view.size.width, Math.random() * view.size.height), 200);
-        newCircle.fillColor = keyData[e.key].color;
-        keyData[e.key].sound.play();
-        circles.push(newCircle);
-      }
-      
-    }
-
-    function onFrame(event) {
-      
-      for(var i = 0; i < circles.length; i++) {
-        circles[i].fillColor.hue += 1;
-		  circles[i].scale(0.93);
-		  
-		  if (circles[i].area < 1) {
-			circles[i].remove();
-			circles.splice(i,1);
-			console.log(circles);
-		  }
-      }
-
-    }
-
